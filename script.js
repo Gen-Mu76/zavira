@@ -30,7 +30,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ==================== ANIMASI SCROLL ====================
+// ==================== ANIMASI SCROLL (BERANDA) ====================
 const observerOptions = { threshold: 0.1 };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -47,7 +47,7 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
 // ==================== LOGIKA HALAMAN LMS (belajar.html) ====================
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const sidebar = document.getElementById('sidebar');
-const lmsLinks = document.querySelectorAll('.sidebar a');
+const lmsLinks = document.querySelectorAll('.sidebar .bab-link');
 const babSections = document.querySelectorAll('.bab-section');
 const welcomeScreen = document.getElementById('welcome-lms');
 
@@ -58,29 +58,17 @@ if (sidebarToggle && sidebar) {
     });
 }
 
-// Logika Navigasi Tab / Halaman Tunggal
+// Logika Navigasi Level 1 (BAB dari Sidebar)
 if (lmsLinks.length > 0) {
     lmsLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            const targetHref = this.getAttribute('href');
+            const targetBabId = this.getAttribute('href'); // cth: #bab1
             
-            // Pastikan ini adalah link internal (dimulai dengan #)
-            if (targetHref.startsWith('#')) {
+            if (targetBabId.startsWith('#bab')) {
                 e.preventDefault();
                 
-                // Hapus tampilan welcome screen
+                // Hilangkan layar selamat datang
                 if(welcomeScreen) welcomeScreen.style.display = 'none';
-
-                // Tentukan Bab Utama dari target (misal #sub1-2 berarti parent-nya #bab1)
-                let targetBabId = targetHref;
-                
-                if (targetHref.startsWith('#sub')) {
-                    const subElement = document.querySelector(targetHref);
-                    if(subElement) {
-                        // Cari elemen <section class="bab-section"> terdekat
-                        targetBabId = '#' + subElement.closest('.bab-section').id;
-                    }
-                }
 
                 // Sembunyikan semua Bab
                 babSections.forEach(sec => sec.classList.remove('active'));
@@ -89,30 +77,53 @@ if (lmsLinks.length > 0) {
                 const activeBab = document.querySelector(targetBabId);
                 if (activeBab) {
                     activeBab.classList.add('active');
+
+                    // OTOMATIS AKTIFKAN TAB PERTAMA DI BAB INI
+                    const firstTab = activeBab.querySelector('.tab-btn');
+                    if (firstTab) {
+                        firstTab.click(); 
+                    }
                 }
 
-                // Scroll ke bagian yang dituju (Bab atau Sub-bab)
-                setTimeout(() => {
-                    const scrollTarget = document.querySelector(targetHref);
-                    if (scrollTarget) {
-                        // Mengurangi offset 80px agar konten tidak tertutup navbar atas
-                        const elementPosition = scrollTarget.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - 80;
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
-                    }
-                }, 100);
-
-                // Styling link yang aktif di sidebar
+                // Styling active link sidebar
                 lmsLinks.forEach(l => l.classList.remove('active-link'));
                 this.classList.add('active-link');
 
-                // Tutup sidebar jika sedang di tampilan mobile
+                // Tutup sidebar di tampilan mobile
                 if(window.innerWidth <= 768 && sidebar) {
                     sidebar.classList.remove('active');
                 }
+                
+                // Scroll halus ke atas bagian konten
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        });
+    });
+}
+
+// Logika Navigasi Level 2 (SUBBAB dari Tab Navigasi Horizontal)
+const tabButtons = document.querySelectorAll('.tab-btn');
+if (tabButtons.length > 0) {
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target'); // cth: #sub1-1
+            const parentSection = this.closest('.bab-section'); // Ambil bab tempat tab ini berada
+
+            // 1. Reset state semua tab di dalam bab ini
+            parentSection.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active-tab'));
+            
+            // 2. Tambahkan class active ke tab yang diklik
+            this.classList.add('active-tab');
+
+            // 3. Sembunyikan semua konten subbab di dalam bab ini
+            parentSection.querySelectorAll('.subbab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // 4. Tampilkan konten subbab yang dituju
+            const targetContent = document.querySelector(targetId);
+            if(targetContent) {
+                targetContent.classList.add('active');
             }
         });
     });
