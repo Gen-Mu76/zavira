@@ -1,26 +1,80 @@
-document.addEventListener("DOMContentLoaded", function() {
-    
-    // Logika Navbar Mobile
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+// 1. HAMBURGER MENU TOGGLE
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+if (hamburger) {
+    hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+    });
+}
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
+// Tutup menu saat link diklik (di versi Mobile)
+document.querySelectorAll(".nav-links li a").forEach(n => 
+    n.addEventListener("click", () => {
+        if(hamburger) hamburger.classList.remove("active");
+        if(navLinks) navLinks.classList.remove("active");
+    })
+);
+
+// 2. SMOOTH SCROLL UNTUK LINK ANCHOR (#)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
             });
-        });
-    }
-
-    // Penanganan Jika Gambar Gagal Dimuat
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
-            this.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="200" height="200" style="background:%23cccccc"%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14px" fill="%23333333"%3EGambar Belum Ditambahkan%3C/text%3E%3C/svg%3E';
-            this.alt = "Gambar tidak tersedia";
-        });
+        }
     });
 });
+
+// 3. ANIMASI SCROLL MUNCUL (FADE IN)
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            return;
+        } else {
+            entry.target.classList.add('appear');
+            appearOnScroll.unobserve(entry.target);
+        }
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+
+// 4. FALLBACK GAMBAR ERROR
+const images = document.querySelectorAll('img');
+images.forEach(img => {
+    img.addEventListener('error', function() {
+        // Jika gambar gagal dimuat, ganti dengan gambar dummy
+        this.src = 'https://via.placeholder.com/400x300?text=Gambar+Belum+Tersedia';
+        this.alt = 'Gambar tidak dapat dimuat';
+        this.classList.add('error-fallback');
+    });
+});
+
+// 5. TOGGLE SIDEBAR DI HALAMAN LMS (UNTUK MOBILE)
+const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
+const lmsSidebar = document.getElementById('lmsSidebar');
+
+if (toggleSidebarBtn && lmsSidebar) {
+    toggleSidebarBtn.addEventListener('click', () => {
+        lmsSidebar.classList.toggle('show');
+        if (lmsSidebar.classList.contains('show')) {
+            toggleSidebarBtn.textContent = '✖ Tutup Daftar Materi';
+        } else {
+            toggleSidebarBtn.textContent = '☰ Daftar Materi';
+        }
+    });
+}
