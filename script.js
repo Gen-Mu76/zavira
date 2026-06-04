@@ -1,80 +1,119 @@
-// 1. HAMBURGER MENU TOGGLE
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+// ==================== HAMBURGER MENU (BERANDA) ====================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
 
-if (hamburger) {
-    hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navLinks.classList.toggle("active");
+if(hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
     });
 }
 
-// Tutup menu saat link diklik (di versi Mobile)
-document.querySelectorAll(".nav-links li a").forEach(n => 
-    n.addEventListener("click", () => {
-        if(hamburger) hamburger.classList.remove("active");
-        if(navLinks) navLinks.classList.remove("active");
-    })
-);
-
-// 2. SMOOTH SCROLL UNTUK LINK ANCHOR (#)
+// ==================== SMOOTH SCROLL (BERANDA) ====================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
+        // Hanya jalankan fungsi ini jika berada di halaman utama (index.html)
+        if(document.querySelector('.hero-section')) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });
 
-// 3. ANIMASI SCROLL MUNCUL (FADE IN)
-const faders = document.querySelectorAll('.fade-in');
-
-const appearOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+// ==================== ANIMASI SCROLL ====================
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.classList.add('appear');
-            appearOnScroll.unobserve(entry.target);
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
         }
     });
-}, appearOptions);
+}, observerOptions);
 
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
+document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
 });
 
-// 4. FALLBACK GAMBAR ERROR
-const images = document.querySelectorAll('img');
-images.forEach(img => {
-    img.addEventListener('error', function() {
-        // Jika gambar gagal dimuat, ganti dengan gambar dummy
-        this.src = 'https://via.placeholder.com/400x300?text=Gambar+Belum+Tersedia';
-        this.alt = 'Gambar tidak dapat dimuat';
-        this.classList.add('error-fallback');
+// ==================== LOGIKA HALAMAN LMS (belajar.html) ====================
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
+const lmsLinks = document.querySelectorAll('.sidebar a');
+const babSections = document.querySelectorAll('.bab-section');
+const welcomeScreen = document.getElementById('welcome-lms');
+
+// Toggle Sidebar Mobile
+if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
     });
-});
+}
 
-// 5. TOGGLE SIDEBAR DI HALAMAN LMS (UNTUK MOBILE)
-const toggleSidebarBtn = document.getElementById('toggleSidebarBtn');
-const lmsSidebar = document.getElementById('lmsSidebar');
+// Logika Navigasi Tab / Halaman Tunggal
+if (lmsLinks.length > 0) {
+    lmsLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetHref = this.getAttribute('href');
+            
+            // Pastikan ini adalah link internal (dimulai dengan #)
+            if (targetHref.startsWith('#')) {
+                e.preventDefault();
+                
+                // Hapus tampilan welcome screen
+                if(welcomeScreen) welcomeScreen.style.display = 'none';
 
-if (toggleSidebarBtn && lmsSidebar) {
-    toggleSidebarBtn.addEventListener('click', () => {
-        lmsSidebar.classList.toggle('show');
-        if (lmsSidebar.classList.contains('show')) {
-            toggleSidebarBtn.textContent = '✖ Tutup Daftar Materi';
-        } else {
-            toggleSidebarBtn.textContent = '☰ Daftar Materi';
-        }
+                // Tentukan Bab Utama dari target (misal #sub1-2 berarti parent-nya #bab1)
+                let targetBabId = targetHref;
+                
+                if (targetHref.startsWith('#sub')) {
+                    const subElement = document.querySelector(targetHref);
+                    if(subElement) {
+                        // Cari elemen <section class="bab-section"> terdekat
+                        targetBabId = '#' + subElement.closest('.bab-section').id;
+                    }
+                }
+
+                // Sembunyikan semua Bab
+                babSections.forEach(sec => sec.classList.remove('active'));
+
+                // Tampilkan Bab yang dituju
+                const activeBab = document.querySelector(targetBabId);
+                if (activeBab) {
+                    activeBab.classList.add('active');
+                }
+
+                // Scroll ke bagian yang dituju (Bab atau Sub-bab)
+                setTimeout(() => {
+                    const scrollTarget = document.querySelector(targetHref);
+                    if (scrollTarget) {
+                        // Mengurangi offset 80px agar konten tidak tertutup navbar atas
+                        const elementPosition = scrollTarget.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - 80;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                }, 100);
+
+                // Styling link yang aktif di sidebar
+                lmsLinks.forEach(l => l.classList.remove('active-link'));
+                this.classList.add('active-link');
+
+                // Tutup sidebar jika sedang di tampilan mobile
+                if(window.innerWidth <= 768 && sidebar) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
     });
 }
