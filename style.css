@@ -1,460 +1,228 @@
-/* =======================================================
-   VARIABEL WARNA (SILAKAN GANTI SESUAI KEBUTUHAN)
-======================================================= */
+/* ==================== VARIABEL WARNA (TEMA BARU) ==================== */
 :root {
-    --primary: #059669; /* Hijau Utama */
-    --secondary: #047857; /* Hijau Tua */
-    --accent: #F59E0B; /* Kuning/Emas (Aksen) */
-    --bg-main: #F9FAFB; /* Abu-abu sangat terang (Latar Belakang Utama) */
-    --bg-card: #FFFFFF; /* Putih (Latar Kartu) */
-    --text-main: #1F2937; /* Abu-abu gelap (Teks Utama) */
-    --text-secondary: #4B5563; /* Abu-abu medium (Teks Sekunder) */
+    --warna-utama: #10B981;         /* Hijau Zamrud Cerah */
+    --warna-sekunder: #FEF3C7;      /* Cream Lembut */
+    --warna-aksen: #059669;         /* Hijau Gelap untuk Tombol/Hover */
+    --warna-bg-utama: #FFFFFF;      /* Putih */
+    --warna-bg-section: #F9FAFB;    /* Putih Tulang / Abu sangat muda */
+    --warna-bg-card: #FFFFFF;       /* Putih */
+    --warna-teks-utama: #1F2937;    /* Abu-abu Gelap */
+    --warna-teks-sekunder: #FFFFFF; /* Putih */
+    
+    /* Variabel Ukuran & Efek */
+    --radius: 16px;                 /* Lebih melengkung & modern */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transisi: all 0.3s ease;
 }
 
-/* =======================================================
-   RESET & PENGATURAN DASAR
-======================================================= */
+/* ==================== RESET DASAR ==================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, sans-serif;
-    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--warna-bg-utama);
+    color: var(--warna-teks-utama);
+    line-height: 1.7;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
+/* ==================== LAYOUT UMUM ==================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Fallback untuk gambar error diset lewat JS, tapi bg ini jaga-jaga */
-img.error-fallback {
-    background-color: #E5E7EB;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* =======================================================
-   NAVBAR
-======================================================= */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: var(--bg-card);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: var(--primary);
-}
-
-.nav-akses {
-    background-color: var(--primary);
-    color: white !important;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-
-.nav-akses:hover {
-    background-color: var(--secondary);
-}
-
-/* Hamburger Menu (Mobile) */
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--text-main);
-    transition: all 0.3s ease;
-}
-
-/* =======================================================
-   UTILITY CLASSES & KOMPONEN UMUM
-======================================================= */
-.section-padding {
-    padding: 5rem 2rem;
-}
+.section { padding: 100px 0; }
+.section-alt { background-color: var(--warna-bg-section); }
 
 .section-title {
     text-align: center;
-    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    color: var(--warna-utama);
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.section-title h2 {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
-.btn-primary {
-    display: inline-block;
-    background-color: var(--primary);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary);
-}
-
-.text-center {
+.section-subtitle {
     text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    color: #6B7280;
 }
 
-/* =======================================================
-   LANDING PAGE (HERO, MASALAH, SOLUSI)
-======================================================= */
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8rem 2rem 4rem;
-    gap: 2rem;
+.text-center { text-align: center; }
+
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background-color: var(--warna-utama);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: var(--shadow);
 }
 
-.hero-text {
-    flex: 1;
-}
-
-.hero-text h1 {
-    font-size: 3rem;
-    color: var(--primary);
-}
-
-.hero-text h2 {
-    font-size: 1.5rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
-}
-
-.hero-text p {
-    margin-bottom: 2rem;
-    color: var(--text-secondary);
-}
-
-.hero-image {
-    flex: 1;
-    text-align: center;
-}
-
-/* Grid Kartu Umum (Masalah & Fitur) */
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
+.nav-container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
 }
+
+.nav-logo {
+    color: var(--warna-teks-sekunder);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-menu { display: flex; list-style: none; gap: 20px; }
+
+.nav-link {
+    color: var(--warna-teks-sekunder);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transisi);
+    padding: 8px 16px;
+    border-radius: 50px;
+}
+
+.nav-link:hover {
+    background-color: var(--warna-sekunder);
+    color: var(--warna-aksen);
+}
+
+.hamburger { display: none; cursor: pointer; background: transparent; border: none; }
+.bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--warna-teks-sekunder); transition: var(--transisi); }
+
+/* ==================== HERO SECTION ==================== */
+.hero-section {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background: linear-gradient(135deg, var(--warna-bg-utama) 0%, var(--warna-sekunder) 100%);
+}
+
+.hero-container { display: flex; align-items: center; gap: 50px; }
+.hero-text { flex: 1; }
+.hero-text h1 { font-size: 3rem; color: var(--warna-utama); margin-bottom: 15px; line-height: 1.2; }
+.hero-text .tagline { font-size: 1.3rem; color: var(--warna-aksen); font-weight: bold; margin-bottom: 25px; }
+.hero-text .deskripsi { margin-bottom: 35px; font-size: 1.1rem; color: #4B5563; }
+.hero-image { flex: 1; display: flex; justify-content: center; }
+.hero-image img { max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow-hover); }
+
+/* ==================== CARD GRID ==================== */
+.card-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.card-grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.card-grid-5 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
 
 .card {
-    background-color: var(--bg-card);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--warna-bg-card);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: var(--transisi);
+    border: 1px solid #E5E7EB;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-}
+.card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: var(--warna-utama); }
+.card h3 { color: var(--warna-utama); margin-bottom: 15px; font-size: 1.3rem; }
 
-.card h3 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-}
+/* ==================== SOLUSI SECTION ==================== */
+.solusi-container { display: flex; gap: 50px; align-items: center; }
+.solusi-image { flex: 1; }
+.solusi-image img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+.solusi-text { flex: 1.2; }
+.solusi-text h2 { color: var(--warna-utama); margin-bottom: 20px; font-size: 2rem; }
+.solusi-text h3 { color: var(--warna-aksen); margin-top: 25px; margin-bottom: 15px; }
+.manfaat-item { background-color: var(--warna-bg-utama); padding: 20px; border-radius: var(--radius); margin-bottom: 15px; border-left: 5px solid var(--warna-utama); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 
-/* Layout Solusi */
-.solusi-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.solusi-image, .solusi-text {
-    flex: 1;
-}
-
-.solusi-text ul {
-    list-style: none;
-    margin-top: 1rem;
-}
-
-.solusi-text li {
-    margin-bottom: 0.5rem;
-}
-
-/* Tim Grid */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.team-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    border: 4px solid var(--primary);
-}
-
-/* Footer */
-footer {
-    background-color: var(--secondary);
-    color: white;
-    text-align: center;
-    padding: 3rem 1rem;
-}
-
-/* =======================================================
-   HALAMAN BELAJAR (LMS)
-======================================================= */
-.lms-body {
-    background-color: var(--bg-main);
-}
-
-.lms-header {
-    background-color: var(--primary);
-    color: white;
-    padding: 2rem;
-    text-align: center;
-}
-
-.btn-back {
-    color: var(--accent);
-    text-decoration: none;
+/* ==================== TOMBOL ==================== */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    font-size: 1rem;
     font-weight: bold;
-    display: block;
-    margin-bottom: 1rem;
-}
-
-.lms-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 2rem auto;
-    gap: 2rem;
-    padding: 0 1rem;
-}
-
-.toggle-sidebar {
-    display: none;
-    background-color: var(--primary);
-    color: white;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: var(--transisi);
     cursor: pointer;
-    margin-bottom: 1rem;
-    width: 100%;
-    text-align: left;
-    font-weight: bold;
+    text-align: center;
 }
 
-.lms-sidebar {
-    width: 250px;
-    background-color: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    height: fit-content;
-}
+.btn-primary { background-color: var(--warna-utama); color: var(--warna-teks-sekunder); }
+.btn-primary:hover { background-color: var(--warna-aksen); transform: scale(1.05); color: white;}
+.btn-secondary { background-color: var(--warna-sekunder); color: var(--warna-aksen); border: none; }
+.btn-secondary:hover { background-color: #FDE68A; transform: scale(1.05); }
 
-.bab-list {
-    list-style: none;
-    margin-top: 1rem;
-}
+/* ==================== TIM SECTION ==================== */
+.tim-card { text-align: center; padding: 30px 15px; }
+.tim-card img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-bottom: 15px; border: 4px solid var(--warna-sekunder); }
+.tim-card h3 { font-size: 1.1rem; margin-bottom: 5px; color: var(--warna-utama); }
+.tim-card p { font-size: 0.9rem; color: #6B7280; }
+.img-fallback { width: 120px; height: 120px; border-radius: 50%; background-color: #eee; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #999; text-align: center; padding: 10px; border: 4px solid var(--warna-sekunder);}
 
-.bab-list li {
-    margin-bottom: 0.5rem;
-}
 
-.bab-list a {
-    text-decoration: none;
-    color: var(--text-main);
-    display: block;
-    padding: 0.8rem;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
+/* ==================== FOOTER ==================== */
+.footer { background-color: var(--warna-utama); color: var(--warna-teks-sekunder); text-align: center; padding: 50px 0; }
+.footer h3 { color: var(--warna-sekunder); margin-bottom: 15px; font-size: 1.5rem; }
+.footer p { color: rgba(255,255,255,0.8); }
 
-.bab-list a:hover, .bab-list a.active {
-    background-color: var(--primary);
-    color: white;
-}
+/* ==================== ANIMASI SCROLL ==================== */
+.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
 
-.lms-content {
-    flex: 1;
-    background-color: var(--bg-card);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
+/* ==================== LAYOUT LMS (belajar.html) ==================== */
+.lms-container { display: flex; margin-top: 70px; min-height: calc(100vh - 70px); }
+.sidebar { width: 300px; background-color: var(--warna-bg-section); color: var(--warna-teks-utama); padding: 30px 20px; border-right: 1px solid #E5E7EB; overflow-y: auto; }
+.sidebar h2 { font-size: 1.3rem; margin-bottom: 20px; color: var(--warna-utama); border-bottom: 2px solid var(--warna-sekunder); padding-bottom: 10px; }
+.sidebar ul { list-style: none; }
+.sidebar li { margin-bottom: 8px; }
+.sidebar a { color: var(--warna-teks-utama); text-decoration: none; display: block; padding: 10px 15px; border-radius: 8px; transition: var(--transisi); font-size: 0.95rem; font-weight: 500;}
+.sidebar a:hover, .sidebar a.active-link { background-color: var(--warna-sekunder); color: var(--warna-aksen); }
 
-.materi-section {
-    margin-bottom: 2rem;
-}
+.lms-content { flex: 1; padding: 50px; background-color: var(--warna-bg-utama); }
+.lms-header { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid var(--warna-sekunder); text-align: center;}
+.lms-header h1 { color: var(--warna-utama); font-size: 2.5rem; margin-bottom: 15px;}
 
-.materi-img {
-    margin: 1.5rem 0;
+/* CSS UNTUK MENYEMBUNYIKAN/MENAMPILKAN BAB (TAB LOGIC) */
+.bab-section { 
+    display: none; 
+    animation: fadeIn 0.5s; 
 }
+.bab-section.active { display: block; }
+.welcome-lms { display: block; text-align: center; padding: 50px 0; animation: fadeIn 0.5s; }
 
-.iframe-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Ratio 16:9 */
-    height: 0;
-    margin-top: 1.5rem;
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    border: none;
-}
+.bab-section h2 { color: var(--warna-utama); margin-bottom: 30px; font-size: 2rem; border-bottom: 3px solid var(--warna-sekunder); padding-bottom: 10px; display: inline-block;}
+.sub-bab { background: var(--warna-bg-card); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 30px; border: 1px solid #E5E7EB;}
+.sub-bab h3 { color: var(--warna-aksen); margin-bottom: 20px; font-size: 1.4rem; }
+.sub-bab p { margin-bottom: 15px; text-align: justify; }
+.sub-bab img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; box-shadow: var(--shadow); display: block;}
 
-.action-card {
-    background-color: var(--bg-main);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 5px solid var(--accent);
-    margin-top: 1.5rem;
-}
+.sidebar-toggle { display: none; position: fixed; bottom: 20px; right: 20px; background-color: var(--warna-utama); color: white; border: none; padding: 15px 20px; border-radius: 50px; font-size: 1.2rem; cursor: pointer; z-index: 999; box-shadow: var(--shadow-hover); }
 
-.divider {
-    border: 0;
-    height: 1px;
-    background-color: #E5E7EB;
-    margin: 3rem 0;
-}
-
-/* =======================================================
-   ANIMASI SCROLL MUNCUL
-======================================================= */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.appear {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* =======================================================
-   RESPONSIVE DESIGN (MOBILE & TABLET)
-======================================================= */
+/* ==================== RESPONSIVE MOBILE ==================== */
 @media (max-width: 768px) {
-    /* Navbar Responsive */
-    .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 60px;
-        flex-direction: column;
-        background-color: var(--bg-card);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        padding: 2rem 0;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .hamburger.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-    /* Layout Responsive */
-    .hero, .solusi-container {
-        flex-direction: column;
-        text-align: center;
-        padding-top: 6rem;
-    }
-
-    /* LMS Responsive */
-    .lms-container {
-        flex-direction: column;
-    }
+    .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: var(--warna-utama); width: 100%; text-align: center; transition: 0.3s; padding: 20px 0; box-shadow: 0 10px 10px rgba(0,0,0,0.1); }
+    .nav-menu.active { left: 0; }
+    .hamburger { display: block; }
+    .hero-container { flex-direction: column-reverse; text-align: center; }
+    .card-grid-3, .card-grid-4, .card-grid-5 { grid-template-columns: 1fr; }
+    .solusi-container { flex-direction: column; }
     
-    .toggle-sidebar {
-        display: block;
-    }
-
-    .lms-sidebar {
-        width: 100%;
-        display: none; /* Disembunyikan dulu di mobile, dibuka lewat JS */
-    }
-
-    .lms-sidebar.show {
-        display: block;
-    }
+    .lms-container { flex-direction: column; }
+    .sidebar { width: 100%; position: fixed; top: 70px; left: -100%; height: calc(100vh - 70px); z-index: 900; transition: 0.3s; background-color: white;}
+    .sidebar.active { left: 0; }
+    .sidebar-toggle { display: block; }
+    .lms-content { padding: 20px; }
 }
