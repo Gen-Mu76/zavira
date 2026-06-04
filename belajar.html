@@ -3,58 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruang Belajar - Zavira Haramain</title>
+    <title>Belajar Haji & Umroh - Zavira Haramain</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="lms-body">
+<body>
 
-    <header class="lms-header">
-        <div class="header-text">
-            <a href="index.html" class="btn-back">⬅ Kembali ke Beranda</a>
-            <h1>BELAJAR HAJI & UMROH</h1>
-            <p>Belajar haji dan umroh kini jadi lebih mudah. Pilih materi di samping untuk mulai belajar.</p>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Zavira Haramain</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Kembali ke Beranda</a></li>
+            </ul>
         </div>
-    </header>
+    </nav>
+
+    <button id="sidebar-toggle" class="sidebar-toggle">☰ Menu Materi</button>
 
     <div class="lms-container">
         
-        <button class="toggle-sidebar" id="toggleSidebarBtn">☰ Daftar Materi</button>
+        <aside class="sidebar" id="sidebar">
+            <h2>Daftar Materi</h2>
+            <ul>
+                <li><a href="#bab1">Bab 1: Konsep Dasar</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-1">1.1 Pengertian</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-2">1.2 Hukum</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-3">1.3 Perbedaan</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-4">1.4 Syarat Wajib</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-5">1.5 Dalil & Niat</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-6">1.6 Hal Membatalkan</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub1-7">1.7 Quiz & Game</a></li>
 
-        <aside class="lms-sidebar" id="lmsSidebar">
-            <h3>Daftar Bab</h3>
-            <ul class="bab-list">
-                <li><a href="#bab1" class="active">Bab 1: Konsep Dasar</a></li>
-                <li><a href="#bab2">Bab 2: Alur Ibadah</a></li>
-                <li><a href="#bab3">Bab 3: Ziarah</a></li>
-                <li><a href="#bab4">Bab 4: Doa-doa</a></li>
+                <li style="margin-top: 15px;"><a href="#bab2">Bab 2: Alur Ibadah</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub2-1">2.1 Alur Haji</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub2-2">2.2 Alur Umroh</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub2-3">2.3 Quiz & Game</a></li>
+
+                <li style="margin-top: 15px;"><a href="#bab3">Bab 3: Ziarah & Adab</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub3-1">3.1 Keutamaan</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub3-2">3.2 Adab Nabawi</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub3-3">3.3 Adab Haram</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub3-4">3.4 Situs Sejarah</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub3-5">3.5 Quiz & Game</a></li>
+
+                <li style="margin-top: 15px;"><a href="#bab4">Bab 4: Kumpulan Doa</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub4-1">4.1 - 4.10 Kumpulan Doa</a></li>
+                <li style="padding-left: 15px; font-size: 0.9rem;"><a href="#sub4-11">4.11 Kuis Doa</a></li>
             </ul>
         </aside>
 
         <main class="lms-content">
-            <section id="bab1" class="materi-section">
+            
+            <div class="lms-header">
+                <h1>RUANG BELAJAR</h1>
+                <p>Pilih materi di menu samping untuk mulai belajar secara interaktif.</p>
+            </div>
+
+            <div id="welcome-lms" class="welcome-lms">
+                <h2 style="color: var(--warna-utama); font-size: 2rem;">Selamat Datang!</h2>
+                <p style="font-size: 1.1rem; color: #666; margin-top: 10px;">Silakan pilih bab atau sub-bab pada menu di sebelah kiri layar Anda untuk memulai pembelajaran.</p>
+            </div>
+
+            <section id="bab1" class="bab-section">
                 <h2>Bab 1: Konsep Dasar Haji & Umroh</h2>
-                <p>Selamat datang di Bab 1. Di sini kita akan mempelajari pengertian, hukum, syarat, rukun, dan wajib dari ibadah Haji maupun Umroh.</p>
                 
-                <img src="https://via.placeholder.com/800x400" alt="Ilustrasi Konsep Dasar Haji" class="materi-img">
-                
-                <div class="iframe-container">
-                    <h3>Slide Presentasi:</h3>
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Video Materi" allowfullscreen></iframe>
+                <div id="sub1-1" class="sub-bab">
+                    <h3>1.1 | Pengertian Haji & Umroh</h3>
+                    <img src="https://i.ibb.co.com/LhCFVkZR/Screenshot-2026-05-24-221612.png" alt="Ringkasan Pengertian Haji Umroh">
+                    <p>Secara harfiah Haji dapat diartikan sebagai tujuan, maksud, dan menyengaja, yaitu bermaksud mendatangi tempat yang diagungkan, mendatangi secara pisik dan jiwa ke Baitullah untuk menunaikan amalan-amalan tertentu. Sedangkan Umrah secara harfiah berarti ziarah atau berziarah ke tempat yang mulia “Baitullah” untuk melaksanakan amalan-amalan tertentu yang terdiri atas tawaf, sa’i dan bercukur.</p>
+                </div>
+
+                <div id="sub1-2" class="sub-bab">
+                    <h3>1.2 | Hukum Haji & Umroh</h3>
+                    <img src="https://i.ibb.co.com/wFhXYqZz/IMG-20260525-WA0002.jpg" alt="Syarat Wajib Haji">
+                    <p>Haji merupakan rukun Islam yang kelima yang diwajibkan bagi seorang Muslim yang memiliki kemapuan untuk melaksakan sekali sepanjang hidupnya. Pelaksanaan haji merupakan ibadah mahdah yang bersifat ta’abbudi yang pelaksaannya mengandung banyak rahasia-rahasia dan simbol-simbol untuk memperteguh keimanan dan takwaan kepada Allah Swt.</p>
+                </div>
+
+                <div id="sub1-3" class="sub-bab">
+                    <h3>1.3 | Perbedaan Haji dan Umroh</h3>
+                    <img src="https://i.ibb.co.com/Xf0K8t76/Chat-GPT-Image-May-2-2026-03-10-06-PM.png" alt="Tabel Perbedaan Haji dan Umroh">
+                </div>
+
+                <div id="sub1-4" class="sub-bab">
+                    <h3>1.4 | Syarat Wajib</h3>
+                    <p>Syarat wajib haji adalah ketentuan yang harus dipenuhi oleh seorang Muslim agar ia terkena kewajiban melaksanakan ibadah haji.</p>
+                    <ol style="padding-left: 20px; margin-bottom: 15px;">
+                        <li><strong>Islam:</strong> Hanya diwajibkan kepada orang yang telah memeluk agama Islam.</li>
+                        <li><strong>Baligh:</strong> Telah mencapai usia dewasa menurut ketentuan syariat.</li>
+                        <li><strong>Berakal (Aqil):</strong> Memiliki kemampuan berpikir dan memahami.</li>
+                        <li><strong>Merdeka:</strong> Bukan seorang budak.</li>
+                        <li><strong>Mampu (Istitha'ah):</strong> Mencakup fisik, finansial, dan keamanan perjalanan.</li>
+                    </ol>
+                </div>
+
+                <div id="sub1-5" class="sub-bab">
+                    <h3>1.5 | Dalil dan Niat Haji dan Umroh</h3>
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; overflow: hidden; border-radius: 8px; margin-bottom:15px;">
+                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;" src="https://www.canva.com/design/DAHJ7nq0UsI/ITFDrtLM-NRv3-eEn2zywQ/watch?embed" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div id="sub1-6" class="sub-bab">
+                    <h3>1.6 | Hal-Hal yang Membatalkan Haji & Umroh</h3>
+                    <img src="https://i.ibb.co.com/FbGBwfkp/Screenshot-2026-05-18-103447.png" alt="Hal yang membatalkan haji umroh">
+                </div>
+
+                <div id="sub1-7" class="sub-bab" style="text-align: center;">
+                    <h3>1.7 | Evaluasi Bab 1</h3>
+                    <p>Uji pemahamanmu setelah mempelajari Konsep Dasar Haji & Umroh.</p>
+                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+                        <a href="https://forms.gle/5J1dFL5NMf3E3eit6" target="_blank" class="btn btn-primary">Kerjakan Quiz</a>
+                        <a href="https://novalazizzayyan-cmyk.github.io/Game-/" target="_blank" class="btn btn-secondary">Mainkan Game</a>
+                    </div>
                 </div>
             </section>
 
-            <hr class="divider">
-
-            <section id="kuis" class="materi-section">
-                <h2>Uji Pemahaman (Kuis)</h2>
-                <p>Setelah mempelajari materi di atas, silakan kerjakan kuis berikut untuk menguji pemahaman Anda.</p>
+            <section id="bab2" class="bab-section">
+                <h2>Bab 2: Alur Rangkaian Ibadah</h2>
                 
-                <div class="action-card">
-                    <h3>Kuis Interaktif</h3>
-                    <p>Kerjakan kuis melalui Google Form atau platform Game pilihan dosen.</p>
-                    <a href="#" target="_blank" class="btn-primary">Buka Kuis Sekarang</a>
+                <div id="sub2-1" class="sub-bab">
+                    <h3>2.1 | Alur Rangkaian Ibadah Haji</h3>
+                    <img src="https://i.ibb.co.com/m5ymH1wN/Screenshot-2026-05-24-222142.png" alt="Ringkasan Alur Haji">
+                    <img src="https://i.ibb.co.com/PvfS4JNm/Chat-GPT-Image-2-Mei-2026-14-36-10.png" alt="Detail Infografis Alur Haji">
+                    <p><strong>1. Ihram Haji (8 Dzulhijjah):</strong> Jemaah memulai rangkaian haji dengan melakukan niat ihram.</p>
+                    <p><strong>2. Mabit di Mina (8 Dzulhijjah):</strong> Jemaah bergerak menuju Mina untuk bermalam (mabit).</p>
+                    <p><strong>3. Wukuf di Arafah (9 Dzulhijjah):</strong> Puncak atau inti dari ibadah haji.</p>
+                    <p><strong>4. Mabit di Muzdalifah:</strong> Mengumpulkan 7 butir batu kerikil.</p>
+                    <p><strong>5. Lontar Jumrah Aqabah & Tahallul:</strong> Melempar 7 batu kerikil ke pilar Aqabah.</p>
+                    <p><strong>6. Penyembelihan Hewan Dam/Kurban:</strong> Bagi jemaah Haji Tamattu'.</p>
+                    <p><strong>7. Thawaf Ifadhah & Sa’i Haji:</strong> Mengelilingi Ka’bah 7 putaran dan berjalan dari Shafa ke Marwah 7 kali.</p>
+                    <p><strong>8. Mabit di Mina & Lontar Tiga Jumrah:</strong> Melempar tiga jumrah (Ula, Wustha, dan Aqabah).</p>
+                    <p><strong>9. Thawaf Wada’:</strong> Thawaf perpisahan sebelum meninggalkan kota Makkah.</p>
+                </div>
+
+                <div id="sub2-2" class="sub-bab">
+                    <h3>2.2 | Alur Rangkaian Ibadah Umroh</h3>
+                    <p><strong>1. Ihram:</strong> Niat dan mengenakan pakaian ihram di Miqat.</p>
+                    <p><strong>2. Tawaf:</strong> Mengelilingi Ka’bah sebanyak tujuh kali berlawanan arah jarum jam.</p>
+                    <p><strong>3. Sa’i:</strong> Berjalan bolak-balik antara Bukit Shafa dan Marwah tujuh kali.</p>
+                    <p><strong>4. Tahallul:</strong> Memotong rambut menandakan menanggalkan semua ego.</p>
+                    
+                    <h4 style="margin-top:20px; color:var(--warna-utama);">Cara Menuju Miqat</h4>
+                    <p>Miqat adalah lokasi di mana Anda mengawali Ihram. Mandi/wudhu, kenakan pakaian ihram, lafazkan niat, dan perbanyak talbiyah.</p>
+                    <img src="https://i.ibb.co.com/DHZXk0wh/Panduan-Persiapan-dan-Alur-Umrah.png" alt="Panduan Persiapan Umrah">
+                    
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; overflow: hidden; border-radius: 8px; margin:20px 0;">
+                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;" src="https://www.canva.com/design/DAHJ9if9Mc8/BWs9rZduBBT6WWXb2ylNbw/watch?embed" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div id="sub2-3" class="sub-bab" style="text-align: center;">
+                    <h3>2.3 | Evaluasi Bab 2</h3>
+                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+                        <a href="https://forms.gle/4zRzbkBkVrNCM9168" target="_blank" class="btn btn-primary">Kerjakan Quiz</a>
+                        <a href="https://rifadramadhani22-ui.github.io/game-2/" target="_blank" class="btn btn-secondary">Mainkan Game</a>
+                    </div>
                 </div>
             </section>
+
+            <section id="bab3" class="bab-section">
+                <h2>Bab 3: Ziarah & Kota Suci</h2>
+
+                <div id="sub3-1" class="sub-bab">
+                    <h3>3.1 | Keutamaan Makkah & Madinah</h3>
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%; overflow: hidden; border-radius: 8px;">
+                        <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;" src="https://www.canva.com/design/DAHIf-sXLVc/xY1zw2fpSDof6yYyU6dX6Q/view?embed" allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div id="sub3-2" class="sub-bab">
+                    <h3>3.2 | Adab di Masjid Nabawi</h3>
+                    <img src="https://i.ibb.co.com/KchYnxgz/Screenshot-2026-05-24-222321.png" alt="Ringkasan Adab Masjid Nabawi">
+                    <ol style="padding-left: 20px;">
+                        <li>Meluruskan niat ibadah kepada Allah.</li>
+                        <li>Masuk dengan kaki kanan dan membaca doa.</li>
+                        <li>Menjaga ketenangan, tidak berbicara keras atau bermain HP.</li>
+                        <li>Shalat Tahiyatul Masjid 2 rakaat.</li>
+                        <li>Adab di Raudhah: Tidak berebut, perbanyak doa khusyuk.</li>
+                    </ol>
+                </div>
+
+                <div id="sub3-3" class="sub-bab">
+                    <h3>3.3 | Adab di Masjidil Haram</h3>
+                    <ol style="padding-left: 20px;">
+                        <li>Menjaga kesucian dan kebersihan diri serta lingkungan.</li>
+                        <li>Masuk tenang, kaki kanan duluan, baca doa masuk masjid.</li>
+                        <li>Tidak berebut atau saling mendorong saat tawaf/Hajar Aswad.</li>
+                        <li>Menjaga pandangan dan akhlak, sopan bertutur.</li>
+                        <li>Mematuhi aturan petugas keamanan.</li>
+                    </ol>
+                </div>
+
+                <div id="sub3-4" class="sub-bab" style="text-align: center;">
+                    <h3>3.4 | Situs Sejarah</h3>
+                    <p>Mari jelajahi berbagai situs sejarah penting di kota suci melalui video berikut.</p>
+                    <a href="https://youtu.be/nj519pIK_-U?si=rOJJ5asfk5F7fFyh" target="_blank" class="btn btn-primary" style="margin-top: 15px;">Tonton Video Dokumenter</a>
+                </div>
+
+                <div id="sub3-5" class="sub-bab" style="text-align: center;">
+                    <h3>3.5 | Evaluasi Bab 3</h3>
+                    <div style="display: flex; gap: 15px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+                        <a href="https://forms.gle/NveDgAS1js8X9pSw9" target="_blank" class="btn btn-primary">Kerjakan Quiz</a>
+                        <a href="https://novalazizzayyan-cmyk.github.io/game3/" target="_blank" class="btn btn-secondary">Mainkan Game</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bab4" class="bab-section">
+                <h2>Bab 4: Kumpulan Doa Manasik</h2>
+                
+                <div id="sub4-1" class="sub-bab">
+                    <h3>Kumpulan Doa Selama Haji & Umroh</h3>
+                    <img src="https://i.ibb.co.com/JjTMw05G/Gemini-Generated-Image-q5kizyq5kizyq5ki.png" alt="Ringkasan Kumpulan Doa">
+                    
+                    <h4 style="margin-top: 20px;">1. Doa Niat Ihram</h4>
+                    <img src="https://i.ibb.co.com/mrcNw3JC/Screenshot-2026-05-18-075541.png" alt="Doa Niat Ihram">
+                    
+                    <h4 style="margin-top: 20px;">2. Doa Talbiyah</h4>
+                    <img src="https://i.ibb.co.com/wrN9CHsg/Screenshot-2026-05-18-080533.png" alt="Doa Talbiyah">
+                    
+                    <h4 style="margin-top: 20px;">3. Doa Masuk Masjid</h4>
+                    <img src="https://i.ibb.co.com/KxgcDJst/Screenshot-2026-05-18-080814.png" alt="Doa Masuk Masjid">
+                    
+                    <h4 style="margin-top: 20px;">4. Doa Melihat Ka’bah</h4>
+                    <img src="https://i.ibb.co.com/T6KcnMj/Screenshot-2026-05-18-081156.png" alt="Doa Melihat Ka bah">
+                    
+                    <h4 style="margin-top: 20px;">5. Doa Tawwaf & Sa'i</h4>
+                    <img src="https://i.ibb.co.com/cSd27pX4/Screenshot-2026-05-18-081412.png" alt="Doa Tawaf">
+                    <img src="https://i.ibb.co.com/VYWCBbdG/Screenshot-2026-05-18-081747.png" alt="Doa Sai" style="margin-top:10px;">
+                    
+                    <h4 style="margin-top: 20px;">6. Doa Wukuf & Muzdalifah</h4>
+                    <img src="https://i.ibb.co.com/NdQnnL0x/Screenshot-2026-05-18-081935.png" alt="Doa Wukuf Arafah">
+                    <img src="https://i.ibb.co.com/yF3DfRrQ/Screenshot-2026-05-18-082157.png" alt="Doa Muzdalifah" style="margin-top:10px;">
+                    
+                    <h4 style="margin-top: 20px;">7. Doa Lempar Jumrah & Tahallul</h4>
+                    <img src="https://i.ibb.co.com/FqCXWxRL/Screenshot-2026-05-18-082325.png" alt="Doa Lempar Jumrah">
+                    <img src="https://i.ibb.co.com/N20bqx33/Screenshot-2026-05-18-082628.png" alt="Doa Tahallul" style="margin-top:10px;">
+                </div>
+
+                <div id="sub4-11" class="sub-bab" style="text-align: center;">
+                    <h3>4.11 | Evaluasi Hafalan Doa</h3>
+                    <p>Uji hafalan dan pemahaman makna doa manasikmu di sini.</p>
+                    <a href="https://forms.gle/59TV4ypKtNaP2FmJA" target="_blank" class="btn btn-primary" style="margin-top: 15px;">Kerjakan Quiz Doa</a>
+                </div>
+            </section>
+
         </main>
     </div>
 
