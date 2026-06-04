@@ -3,145 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zavira Haramain - Media Pembelajaran Haji & Umroh</title>
+    <title>Zavira Haramain - Belajar Haji & Umroh</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="logo">Zavira Haramain</div>
-        <ul class="nav-links">
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#masalah">Masalah</a></li>
-            <li><a href="#solusi">Solusi</a></li>
-            <li><a href="#fitur">Fitur</a></li>
-            <li><a href="belajar.html" class="nav-akses">Akses</a></li>
-            <li><a href="#tim">Tim</a></li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="nav-container">
+            <a href="#beranda" class="nav-logo">Zavira Haramain</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#beranda" class="nav-link">Beranda</a></li>
+                <li><a href="#masalah" class="nav-link">Masalah</a></li>
+                <li><a href="#solusi" class="nav-link">Solusi</a></li>
+                <li><a href="#fitur" class="nav-link">Fitur</a></li>
+                <li><a href="#akses" class="nav-link">Akses</a></li>
+                <li><a href="#tim" class="nav-link">Tim</a></li>
+            </ul>
         </div>
     </nav>
 
-    <section id="beranda" class="hero fade-in">
-        <div class="hero-text">
-            <h1>Zavira Haramain</h1>
-            <h2>"Belajar Haji & Umroh, Lebih Mudah dan Bermakna"</h2>
-            <p>Belajar haji dan umroh kini jadi lebih mudah, seru, dan interaktif. Kami menyediakan simulasi, panduan doa, hingga peta perjalanan lengkap untuk memudahkan pemahaman Anda.</p>
-            <a href="belajar.html" class="btn-primary">Mulai Belajar Sekarang</a>
-        </div>
-        <div class="hero-image">
-            <img src="https://i.ibb.co.com/VpjPpQhT/Chat-GPT-Image-May-4-2026-09-10-22-AM.png" alt="Ilustrasi Zavira Haramain">
-        </div>
-    </section>
-
-    <section id="masalah" class="masalah section-padding fade-in">
-        <div class="section-title">
-            <h2>Kebutuhan Media Pembelajaran Berbasis Aplikasi</h2>
-            <p>Banyak siswa SMP dan SMA/SMK mengalami kendala dalam mempelajari materi Haji dan Umroh karena beberapa faktor berikut:</p>
-        </div>
-        <div class="card-grid">
-            <div class="card">
-                <h3>Rendahnya Pemahaman</h3>
-                <p>Materi haji dan umroh seringkali dianggap rumit dan sulit dibayangkan jika hanya menggunakan buku teks konvensional.</p>
+    <section id="beranda" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-text animate-on-scroll">
+                <h1>Zavira Haramain</h1>
+                <p class="tagline">“Belajar Haji & Umroh, Lebih Mudah dan Bermakna”</p>
+                <p class="deskripsi">Belajar haji dan umroh kini jadi lebih mudah, seru, dan interaktif! Aplikasi ini hadir sebagai solusi pembelajaran digital yang membantu siswa memahami setiap tahapan ibadah haji dan umroh dengan cara yang sederhana dan menyenangkan.</p>
+                <a href="#akses" class="btn btn-primary">Coba Sekarang</a>
             </div>
-            <div class="card">
-                <h3>Keterbatasan Metode</h3>
-                <p>Kurangnya alat peraga atau media interaktif yang membuat proses belajar di kelas menjadi monoton dan membosankan.</p>
-            </div>
-            <div class="card">
-                <h3>Kesulitan Tahapan</h3>
-                <p>Siswa sering tertukar atau kebingungan dalam menghafal rukun, wajib, dan tahapan perjalanan ibadah.</p>
+            <div class="hero-image animate-on-scroll">
+                <img src="https://i.ibb.co.com/VpjPpQhT/Chat-GPT-Image-May-4-2026-09-10-22-AM.png" alt="gambar utama" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar belum ditambahkan</div>';">
             </div>
         </div>
     </section>
 
-    <section id="solusi" class="solusi section-padding fade-in">
-        <div class="solusi-container">
-            <div class="solusi-image">
-                <img src="https://i.ibb.co.com/tMdWK4Q1/Chat-GPT-Image-28-Apr-2026-22-01-22.png" alt="Aplikasi Zavira Haramain">
+    <section id="masalah" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Kebutuhan Media Pembelajaran Berbasis Aplikasi</h2>
+            <p class="section-subtitle animate-on-scroll">Mengatasi tantangan dalam memahami materi Haji dan Umroh</p>
+            <div class="card-grid-3">
+                <div class="card animate-on-scroll">
+                    <h3>Masalah 1</h3>
+                    <p>Rendahnya Pemahaman Siswa terhadap Tata Cara Ibadah Haji dan Umroh</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <h3>Masalah 2</h3>
+                    <p>Keterbatasan Metode Pembelajaran dalam Menjelaskan Manasik Haji dan Umroh</p>
+                </div>
+                <div class="card animate-on-scroll">
+                    <h3>Masalah 3</h3>
+                    <p>Kesulitan Siswa dalam Memahami Tahapan Ibadah Haji dan Umroh Secara Praktis</p>
+                </div>
             </div>
-            <div class="solusi-text">
-                <h2>Zavira Haramain: Solusi Pembelajaran Interaktif</h2>
-                <p>Zavira Haramain hadir sebagai media pembelajaran manasik haji dan umroh yang modern. <strong>Cara kerjanya:</strong> Anda tinggal memilih menu Haji atau Umroh, mengikuti peta perjalanan yang disediakan, mencoba simulasi, dan mengerjakan kuis untuk mengumpulkan poin.</p>
-                <ul>
-                    <li>✅ <strong>Retensi Meningkat:</strong> Visualisasi membantu daya ingat.</li>
-                    <li>✅ <strong>Belajar Fleksibel:</strong> Bisa diakses kapan saja dan di mana saja.</li>
-                    <li>✅ <strong>Simulasi Realistis:</strong> Membawa suasana ibadah langsung ke layar Anda.</li>
-                </ul>
+            <p class="target-user animate-on-scroll" style="text-align: center; margin-top: 30px; font-size: 1.1rem;"><strong>Target Pengguna:</strong> SMP dan SMA/SMK</p>
+        </div>
+    </section>
+
+    <section id="solusi" class="section section-alt">
+        <div class="container solusi-container">
+            <div class="solusi-image animate-on-scroll">
+                <img src="https://i.ibb.co.com/tMdWK4Q1/Chat-GPT-Image-28-Apr-2026-22-01-22.png" alt="Solusi Pembelajaran" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar belum ditambahkan</div>';">
+            </div>
+            <div class="solusi-text animate-on-scroll">
+                <h2>Zavira Haramain: Media Pembelajaran Manasik</h2>
+                <p>Zavira Haramain dirancang sebagai teman belajar digital yang mengubah materi manasik yang kompleks menjadi pengalaman visual yang mudah dipahami. Dengan memadukan teks, audio doa, dan simulasi tahapan ibadah, aplikasi ini hadir untuk mempermudah siswa SMP/SMA dalam memvisualisasikan rukun dan wajib haji secara praktis dan mandiri.</p>
+                
+                <h3>Cara Kerja:</h3>
+                <p style="margin-bottom: 20px;">Siswa masuk ke aplikasi dan memilih alur perjalanan. Mereka akan melewati "peta perjalanan" yang berisi modul materi, melakukan simulasi interaktif di setiap titik lokasi, dan diakhiri dengan kuis pemahaman.</p>
+
+                <div class="manfaat-list">
+                    <div class="manfaat-item">
+                        <strong>Manfaat 1: Meningkatkan Retensi Pemahaman</strong>
+                        <p>Melalui visualisasi alur perjalanan dan audio doa, siswa lebih mudah mengingat urutan ibadah.</p>
+                    </div>
+                    <div class="manfaat-item">
+                        <strong>Manfaat 2: Metode Belajar Fleksibel & Menarik</strong>
+                        <p>Menghilangkan kebosanan belajar dengan sistem gamifikasi, sehingga siswa lebih termotivasi.</p>
+                    </div>
+                    <div class="manfaat-item">
+                        <strong>Manfaat 3: Praktik Virtual yang Akurat</strong>
+                        <p>Memberikan gambaran praktis mengenai tata cara ibadah yang mendekati kondisi nyata.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="fitur" class="fitur section-padding fade-in">
-        <div class="section-title">
-            <h2>Fitur Unggulan</h2>
-        </div>
-        <div class="card-grid">
-            <div class="card">
-                <h3>🎥 Modul Audio Visual</h3>
-                <p>Materi disampaikan dalam bentuk video dan audio yang menarik.</p>
-            </div>
-            <div class="card">
-                <h3>🕋 Simulasi & Kuis</h3>
-                <p>Simulasi langkah-langkah ibadah yang dilengkapi dengan kuis poin.</p>
-            </div>
-            <div class="card">
-                <h3>🎧 Latihan Doa</h3>
-                <p>Latihan pelafalan doa berbasis suara yang jelas dan tartil.</p>
-            </div>
-            <div class="card">
-                <h3>📈 Uji Kemampuan</h3>
-                <p>Evaluasi akhir untuk mengukur tingkat pemahaman siswa.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="akses section-padding fade-in text-center">
-        <h2>Siap Memulai Perjalanan Anda?</h2>
-        <p>Akses platform Zavira Haramain sekarang juga dan jadikan pembelajaran lebih bermakna.</p>
-        <a href="belajar.html" class="btn-primary">Akses Ruang Belajar</a>
-    </section>
-
-    <section id="tim" class="tim section-padding fade-in">
-        <div class="section-title">
-            <h2>Tim Pengembang Zavira Haramain</h2>
-        </div>
-        <div class="team-grid">
-            <div class="team-card">
-                <img src="https://via.placeholder.com/150" alt="Aiva Rahmayani">
-                <h3>Aiva Rahmayani</h3>
-                <p>Project Manager</p>
-            </div>
-            <div class="team-card">
-                <img src="https://via.placeholder.com/150" alt="Muhammad Rifad Rahmadhani">
-                <h3>M. Rifad Rahmadhani</h3>
-                <p>Developer</p>
-            </div>
-            <div class="team-card">
-                <img src="https://via.placeholder.com/150" alt="Ivan Nur Adrian Pratama">
-                <h3>Ivan Nur Adrian P.</h3>
-                <p>Content Creator</p>
-            </div>
-            <div class="team-card">
-                <img src="https://via.placeholder.com/150" alt="Areta Farah Maharani">
-                <h3>Areta Farah M.</h3>
-                <p>Quality Assurance (QA)</p>
-            </div>
-            <div class="team-card">
-                <img src="https://via.placeholder.com/150" alt="Zayyan Nouval Aziz">
-                <h3>Zayyan Nouval Aziz</h3>
-                <p>UI/UX Designer</p>
+    <section id="fitur" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Fitur Utama</h2>
+            <p class="section-subtitle animate-on-scroll">Produk ini dirancang untuk membantu pembelajaran menjadi lebih interaktif, efektif, dan menyenangkan</p>
+            
+            <div class="card-grid-4">
+                <div class="card fitur-card animate-on-scroll">
+                    <h3>Modul Manasik Audio-Visual Lengkap</h3>
+                    <p>Menyediakan panduan langkah-demi-langkah ibadah (Ihram, Tawaf, Sa'i, hingga Wukuf) yang dilengkapi dengan rekaman audio doa-doa maqsur. Siswa bisa menghafal dan mendengarkan pelafalan doa yang benar.</p>
+                </div>
+                <div class="card fitur-card animate-on-scroll">
+                    <h3>Simulasi Ibadah & Kuis</h3>
+                    <p>Menguji kesiapan siswa melalui skenario simulasi dan kuis pilihan ganda. Siswa ditantang untuk menyelesaikan masalah yang sering terjadi di lapangan (seperti larangan ihram atau tata cara dam).</p>
+                </div>
+                <div class="card fitur-card animate-on-scroll">
+                    <h3>Latihan Bacaan Doa</h3>
+                    <p>Siswa dapat melatih pelafalan doa-doa penting selama haji dan umroh, memastikan siswa mampu melafalkan dengan baik dan benar.</p>
+                </div>
+                <div class="card fitur-card animate-on-scroll">
+                    <h3>Uji Kemampuan Siswa</h3>
+                    <p>Melalui kuis yang disediakan untuk mengetahui apakah siswa mampu memahami materi dengan baik dan benar.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        <h2>Zavira Haramain</h2>
-        <p>Pendidikan Agama Islam | "Belajar Haji & Umroh, Lebih Mudah dan Bermakna"</p>
-        <p>&copy; 2026. All rights reserved.</p>
+    <section id="akses" class="section section-alt">
+        <div class="container text-center animate-on-scroll">
+            <h2 class="section-title">Akses Zavira Haramain</h2>
+            <p class="section-subtitle" style="margin-bottom: 30px;">Teman belajar digital yang mengubah materi kompleks menjadi pengalaman visual yang menyenangkan.</p>
+            <div class="cta-buttons">
+                <a href="belajar.html" class="btn btn-primary">Akses Website Pembelajaran</a>
+                <a href="#" class="btn btn-secondary">Download APK</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="tim" class="section">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Tim Zavira Haramain</h2>
+            <p class="section-subtitle animate-on-scroll">Belajar asyik bersama kami</p>
+            
+            <div class="card-grid-5">
+                <div class="card tim-card animate-on-scroll">
+                    <img src="https://i.ibb.co.com/hRMTFq5f/Whats-App-Image-2026-04-20-at-08-05-43.jpg" alt="Aiva Rahmayani" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar tidak tersedia</div>';">
+                    <h3>Aiva Rahmayani</h3>
+                    <p>Project Manager</p>
+                </div>
+                <div class="card tim-card animate-on-scroll">
+                    <img src="https://i.ibb.co.com/DgbrDnhr/foto-rifad.jpg" alt="Muhammad Rifad" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar tidak tersedia</div>';">
+                    <h3>M. Rifad Rahmadhani</h3>
+                    <p>Pengembang Aplikasi</p>
+                </div>
+                <div class="card tim-card animate-on-scroll">
+                    <img src="https://i.ibb.co.com/xq7KNdT9/Whats-App-Image-2026-04-20-at-08-05-28-1.jpg" alt="Ivan Nur" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar tidak tersedia</div>';">
+                    <h3>Ivan Nur Adrian P.</h3>
+                    <p>Content Developer</p>
+                </div>
+                <div class="card tim-card animate-on-scroll">
+                    <img src="https://i.ibb.co.com/ZRxQ8wc7/Whats-App-Image-2026-04-20-at-07-52-37.jpg" alt="Areta Farah" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar tidak tersedia</div>';">
+                    <h3>Areta Farah M.</h3>
+                    <p>QA & Tester</p>
+                </div>
+                <div class="card tim-card animate-on-scroll">
+                    <img src="https://i.ibb.co.com/TDTFQJ3z/Whats-App-Image-2026-04-27-at-08-12-54.jpg" alt="Zayyan Nouval" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'img-fallback\'>Gambar tidak tersedia</div>';">
+                    <h3>Zayyan Nouval Aziz</h3>
+                    <p>UI/UX Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>Zavira Haramain</h3>
+            <p>Pendidikan Agama Islam</p>
+            <p>© 2026</p>
+            <p style="margin-top: 15px; font-style: italic; font-size: 0.9rem; opacity: 0.8;">Belajar Haji & Umroh, Lebih Mudah dan Bermakna</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
